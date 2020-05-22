@@ -1,0 +1,29 @@
+version: '3.3'
+volumes:
+  https:
+    driver: local
+services:
+  https:
+    build: './https'
+    image: 'https'
+    container_name: 'https'
+    ports:
+      - '80:80'
+      - '443:443'
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '1'
+    volumes:
+      - 'https:/var/log/nginx'
+      - 'https:/var/lib/https-portal'
+    environment:
+      - PROXY_BUFFERS="8 64m"
+      - PROXY_BUFFER_SIZE="64m"
+    tty: true
+    restart: 'always'
+    environment:
+      DOMAINS: 'tech.api.redspice.me -> http://blog-api-tech, tech.redspice.me -> http://blog-tech'
+      STAGE:   'staging'
+      # STAGE: 'production'

@@ -1,0 +1,2 @@
+docker-compose.yml
+https/nginx/logs/*.log
