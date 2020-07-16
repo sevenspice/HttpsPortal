@@ -1,6 +1,6 @@
 # 概要
 
-* [https-portal](https://github.com/SteveLTN/https-portal) をカスタマイズしたコンテナを生成する。
+* [https-portal](https://github.com/SteveLTN/https-portal)をカスタマイズしたコンテナを生成する。
     * 日本時間でログを記録するようパッケージを追加している。
 
 # 必要条件
@@ -27,7 +27,7 @@ git clone https://github.com/sevenspice/HttpsPortal.git ~/HttpsPortal
 cd ~/HttpsPortal
 ```
 
-`docker-compose` の設定ファイルを作成する。
+`docker-compose`の設定ファイルを作成する。
 ```
 cp docker-compose.yml.origin docker-compose.yml
 ```
@@ -103,8 +103,8 @@ services:
       # STAGE: 'production'
 ```
 * 公開するドメイン名と表示するコンテンツへのリダイレクト先を設定する。
-* 稼働環境を指定する。本番ならば `production`を指定すること。
-    - `Let's encrypt` は一定時間内に繰り返し発行すると一時的に証明書が発行不可になるため注意すること。
-    - `staging` だと `Let's encrypt` から検証用の証明書が発行される。
-        - 問題がなければ `production` で立ち上げなおすことで本番に切り替わる。
-    - テストや開発等でコンテナの再構築や再起動を繰り返す場合は `local` にすることをお勧めする。
+* 稼働環境を指定する。本番ならば`production`を指定すること。
+    - `Let's encrypt`は一定時間内に繰り返し発行すると一時的に証明書が発行不可になるため注意すること。
+    - `staging`だと`Let's encrypt`から検証用の証明書が発行される。
+        - 問題がなければ`production`で立ち上げなおすことで本番に切り替わる。
+    - テストや開発等でコンテナの再構築や再起動を繰り返す場合は`local`にすることをお勧めする。
