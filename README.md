@@ -29,7 +29,7 @@ cd ~/HttpsPortal
 
 `docker-compose`の設定ファイルを作成する。
 ```
-cp docker-compose.yml.origin docker-compose.yml
+cp docker-compose.origin.yml docker-compose.yml
 ```
 
 `docker-compose.yml`を環境に合わせて適宜編集する。
