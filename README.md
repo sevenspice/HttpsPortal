@@ -98,13 +98,15 @@ services:
     tty: true
     restart: 'always'
     environment:
+      # 公開するドメイン名と表示するコンテンツへのリダイレクト先を設定する。
       DOMAINS: 'example.com -> http://dockerhost:8000'
-      STAGE:   'staging'
+      #
+      # 稼働環境を指定する。本番ならば`production`を指定すること。
+      # stagingだとLet's encryptから検証用の証明書が発行される。
+      # 問題がなければproductionで立ち上げなおすことで本番に切り替わる。
+      # Let's encryptは一定時間内に繰り返し発行すると一時的に証明書が発行不可になるため注意すること。
+      # テストや開発等でコンテナの再構築や再起動を繰り返す場合は`local`にすることをお勧めする。
+      #
       # STAGE: 'production'
+      STAGE:   'staging'
 ```
-* 公開するドメイン名と表示するコンテンツへのリダイレクト先を設定する。
-* 稼働環境を指定する。本番ならば`production`を指定すること。
-    - `Let's encrypt`は一定時間内に繰り返し発行すると一時的に証明書が発行不可になるため注意すること。
-    - `staging`だと`Let's encrypt`から検証用の証明書が発行される。
-        - 問題がなければ`production`で立ち上げなおすことで本番に切り替わる。
-    - テストや開発等でコンテナの再構築や再起動を繰り返す場合は`local`にすることをお勧めする。
