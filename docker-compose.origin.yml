@@ -24,6 +24,6 @@ services:
     tty: true
     restart: 'always'
     environment:
-      DOMAINS: 'tech.api.redspice.me -> http://blog-api-tech, tech.redspice.me -> http://blog-tech'
+      DOMAINS: 'test.example.com -> http://example, sample.example.com -> http://127.0.0.1:8443'
       STAGE:   'staging'
       # STAGE: 'production'
